@@ -1,0 +1,153 @@
+# set modifier
+set $super Mod1
+set $alt Mod4
+
+# set font
+font xft:Jetbrains Mono 8
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+
+#autostart
+exec --no-startup-id hsetroot -fill .wallpaper.png
+exec --no-startup-id xsettingsd &
+exec --no-startup-id compton -b
+exec --no-startup-id mpd --no-daemon
+
+
+# start a terminal
+bindsym $super+Return exec i3-sensible-terminal
+
+# start dmenu (a program launcher)
+bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 
+
+#change volume
+bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-volume 1 -- 0%
+
+# music control
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+
+# brightness control
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrigntessDown exec xbacklight -dec 10
+
+# kill focused window
+bindsym $super+c kill
+bindsym $alt+F4 kill
+
+# change focus
+bindsym $super+Q focus left
+bindsym $super+E focus right
+
+# move focused window
+bindsym $super+Shift+A move left
+bindsym $super+Shift+S move down
+bindsym $super+Shift+W move up
+bindsym $super+Shift+D move right
+
+# split in horizontal orientation
+bindsym $super+h split h
+
+# split in vertical orientation
+bindsym $super+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# change container layout split
+bindsym $super+s layout toggle split
+
+# toggle tiling / floating
+bindsym $super+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+
+
+# switch to workspace
+bindsym $alt+Control+Right workspace next
+bindsym $alt+Control+Left workspace prev
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+
+# move focused container to workspace
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+
+# exit i3
+#bindsym $super+q exec "i3-nagbar -t warning  -m 'Are you sure you want to exit?' -b 'Yes' 'i3-msg exit'"
+
+bindsym $super+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Return mode "default"
+}
+bindsym $super+r mode "resize"
+
+# panel
+bar { 
+        position top
+        font pango:Jetbrains Mono Regular 9
+        #status_command i3status
+        status_command ~/.config/bumblebee-status/bumblebee-status \
+        -t dracula-powerline \
+        -m  mpd cpu memory nic hostname pasink pasource bluetooth  battery datetime 
+tray_output HDMI-0
+        
+colors {
+    background #282A36
+    statusline #F8F8F2
+    separator  #44475A
+
+    focused_workspace  #44475A #44475A #F8F8F2
+    active_workspace   #282A36 #44475A #F8F8F2
+    inactive_workspace #282A36 #282A36 #BFBFBF
+    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    binding_mode       #FF5555 #FF5555 #F8F8F2
+  }
+}
+
+
+# Window rules
+for_window [class=".*"] border pixel 4
+assign [class=emacs|urxvt] 1
+assign [class=firefox|brave-browser] 2
+assign [class=discord] 3
+assign [class=Lutris|Steam] 4
+assign [class=Mailspring] 5
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
+
+#gaps
+gaps inner 15
+gaps outer 20
+
