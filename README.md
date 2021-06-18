@@ -28,8 +28,7 @@ GTK/QT theme: Dracula
 terminal emulator: rxvt-unicode
 
 shell: bash
-
-```
+````
 
 
 <div align="center">
