@@ -39,4 +39,4 @@ shell: bash
 
 bindings and rofi menu based on [i3-starterpack](https://github.com/addy-dclxvi/i3-starterpack)
 
-based on [Dracula palette](https://github.com/dracula/dracula-theme)
+based on [gruvbox palette](https://github.com/gruvbox-community/gruvbox)
