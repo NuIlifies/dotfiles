@@ -19,13 +19,13 @@ window manager: i3-gaps
 
 status bar: bumblebee-status
 
-compositor: compton (picom)
+compositor: picom
 
-font: Jetbrains Mono
+font: iosevka
 
-GTK/QT theme: Dracula
+GTK/QT theme: gruvbox-dark
 
-terminal emulator: rxvt-unicode
+terminal emulator: kitty
 
 shell: bash
 ````
