@@ -27,6 +27,8 @@ GTK/QT theme: gruvbox-dark
 
 terminal emulator: kitty
 
+notification server: dunst
+
 shell: bash
 ````
 
