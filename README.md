@@ -19,7 +19,7 @@ window manager: i3-gaps
 
 status bar: polybar
 
-compositor: picom
+compositor: picom [(jonaburg's fork)] (https://github.com/jonaburg/picom)
 
 font: iosevka
 
