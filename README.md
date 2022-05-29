@@ -1,8 +1,5 @@
 <div align="center">
     <h1>dotfiles</h1>
-    <blockquote>
-        <p>arch user btw</p>
-    </blockquote>
 </div>
 
 
@@ -14,7 +11,7 @@
     <h1>Information</h1>
 </div>
 
-```
+
 window manager: i3-gaps
 
 status bar: polybar
@@ -30,7 +27,7 @@ terminal emulator: kitty
 notification server: dunst
 
 shell: bash
-````
+
 
 
 <div align="center">
