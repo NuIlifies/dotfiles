@@ -17,13 +17,13 @@
 ```
 window manager: i3-gaps
 
-status bar: bumblebee-status
+status bar: polybar
 
 compositor: picom
 
 font: iosevka
 
-GTK/QT theme: gruvbox-dark
+GTK/QT theme: catpuccin
 
 terminal emulator: kitty
 
@@ -39,4 +39,4 @@ shell: bash
 
 bindings and rofi menu based on [i3-starterpack](https://github.com/addy-dclxvi/i3-starterpack)
 
-based on [gruvbox palette](https://github.com/gruvbox-community/gruvbox)
+based on [catpuccin palette](https://github.com/catppuccin/catppuccin)
